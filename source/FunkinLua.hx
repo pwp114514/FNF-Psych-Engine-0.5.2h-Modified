@@ -1805,9 +1805,6 @@ class FunkinLua {
 		}
 		call('onCreate', []);
 		#end
-	}
-}
-
 	inline static function getTextObject(name:String):FlxText
 	{
 		return PlayState.instance.modchartTexts.exists(name) ? PlayState.instance.modchartTexts.get(name) : Reflect.getProperty(PlayState.instance, name);
