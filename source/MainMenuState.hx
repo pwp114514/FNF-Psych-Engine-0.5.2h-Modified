@@ -3,6 +3,7 @@ package;
 #if desktop
 import Discord.DiscordClient;
 #end
+import flxanimate.FlxAnimate;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
@@ -28,6 +29,7 @@ class MainMenuState extends MusicBeatState
 	public static var psychEngineVersion:String = '0.5.2h'; //This is also used for Discord RPC
 	public static var curSelected:Int = 0;
 
+	var char:FlxAnimate;
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
@@ -94,15 +96,9 @@ class MainMenuState extends MusicBeatState
 		magenta.color = 0xFFfd719b;
 		add(magenta);
 
-				var osbaldo:FlxSprite = new FlxSprite(X,Y);
-    				osbaldo.frames = FlxAnimateFrames.from[spritemap1](SUtil.getPath() + 'images/characters/CC/animator-bf/');
-				osbaldo.scale.set(12, 12);
-				osbaldo.updateHitbox();
-				osbaldo.setPosition(1300, 150);
-				osbaldo.scrollFactor.set(1.05, 1.05);
-				osbaldo.antialiasing = ClientPrefs.globalAntialiasing;
-				add(osbaldo);
-
+		char = new FlxAnimate(0, 0, SUtil.getPath() + Path.modFolders('images/characters/CC/animator-bf'));
+		char.antialiasing = true;
+		add(char);
 		
 		// magenta.scrollFactor.set();
 
@@ -183,6 +179,17 @@ class MainMenuState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
+		if (FlxG.keys.justPressed.SPACE)
+		{
+			if (!char.anim.isPlaying)
+				char.anim.play();
+			else
+				char.anim.pause();
+		}
+		
+		char.x = FlxG.mouse.x;
+		char.y = FlxG.mouse.y;
+		
 		if (FlxG.sound.music.volume < 0.8)
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
