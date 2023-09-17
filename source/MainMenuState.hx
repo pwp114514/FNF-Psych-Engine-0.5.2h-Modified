@@ -98,6 +98,7 @@ class MainMenuState extends MusicBeatState
 
 		char = new FlxAnimate(0, 0, SUtil.getPath() + Paths.modFolders('images/characters/CC/animator-bf'));
 		char.antialiasing = true;
+		char.anim.addBySymbol(BF idle, BF idle dance, 0, 0, 24);
 		add(char);
 		
 		// magenta.scrollFactor.set();
@@ -178,15 +179,7 @@ class MainMenuState extends MusicBeatState
 	var selectedSomethin:Bool = false;
 
 	override function update(elapsed:Float)
-	{
-		if (FlxG.keys.justPressed.SPACE)
-		{
-			if (!char.anim.isPlaying)
-				char.anim.play();
-			else
-				char.anim.pause();
-		}
-		
+	{	
 		char.x = FlxG.mouse.x;
 		char.y = FlxG.mouse.y;
 		
