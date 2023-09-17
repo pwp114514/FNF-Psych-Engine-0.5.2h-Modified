@@ -96,10 +96,10 @@ class MainMenuState extends MusicBeatState
 		magenta.color = 0xFFfd719b;
 		add(magenta);
 
-		char = new FlxAnimate(0, 0, SUtil.getPath() + Paths.mods('images/characters/CC/animator-bf'));
+		char = new FlxAnimate(0, 0, SUtil.getPath() + Paths.mods('images/characters/CC/animator-bf') TEXT);
 		char.antialiasing = true;
 		char.anim.addBySymbol('BF idle', 'BF idle dance', 0, 0, 24);
-		char.anim.addByAnimIndices('BF idle', 16 ([0, 1, 2, 3...] etc.), 24);
+		char.anim.addByAnimIndices('BF idle', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], 24);
 		char.anim.play('BF idle');
 		add(char);
 		
