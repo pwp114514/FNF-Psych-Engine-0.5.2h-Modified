@@ -263,6 +263,10 @@ class Paths
 		#end
 		return Assets.getText(getPath(key, TEXT));
 	}
+	inline static public function getJSONAtlas(key:String, ?library:String)
+	{
+		return FlxAtlasFrames.fromTexturePackerJson(image(key, library), file('images/$key.json', library));
+	}
 
 	inline static public function font(key:String)
 	{
