@@ -93,17 +93,15 @@ class MainMenuState extends MusicBeatState
 		magenta.antialiasing = ClientPrefs.globalAntialiasing;
 		magenta.color = 0xFFfd719b;
 		add(magenta);
-		
-				osbaldo = new FlxSprite();
-				osbaldo.frames = SUtil.getPath() + Paths.getJSONAtlas('backgrounds/leakers/oswald');
-				osbaldo.scale.set(1.2, 1.2);
+
+				var osbaldo:FlxSprite = new FlxSprite(X,Y);
+    				osbaldo.frames = FlxAnimateFrames.from[spritemap1](SUtil.getPath() + 'images/characters/CC/animator-bf/');
+				osbaldo.scale.set(12, 12);
 				osbaldo.updateHitbox();
 				osbaldo.setPosition(1300, 150);
-				osbaldo.animation.addByPrefix('idle', 'mesa OSWALD', 24, false);
-				osbaldo.animation.addByPrefix('die', 'OSWALD MANCO NO PUSO PARED', 24, false);
 				osbaldo.scrollFactor.set(1.05, 1.05);
 				osbaldo.antialiasing = ClientPrefs.globalAntialiasing;
-				osbaldo.scale.set(0.96, 0.96);
+				add(osbaldo);
 
 		
 		// magenta.scrollFactor.set();
