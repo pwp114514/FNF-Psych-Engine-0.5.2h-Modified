@@ -99,7 +99,7 @@ class MainMenuState extends MusicBeatState
 		char = new FlxAnimate(0, 0, SUtil.getPath() + Paths.mods('images/characters/CC/animator-bf'));
 		char.antialiasing = true;
 		char.anim.addBySymbol('BF idle', 'BF idle dance', 0, 0, 24);
-		char.anim.addByAnimIndices('BF idle', 16 ([0, 1, 2, 3...] 16.), 24);
+		char.anim.addByAnimIndices('BF idle', 16 ([0, 1, 2, 3...] etc.), 24);
 		char.anim.play('BF idle');
 		add(char);
 		
